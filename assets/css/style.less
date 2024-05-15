@@ -2,6 +2,7 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
 /************************* Reset CSS Start *************************/
 * {
   margin: 0px;
@@ -65,7 +66,7 @@ table {
 :root {
   --primary-color: #525659;
   --secondary-color: #c1272d;
-  --h1-text: clamp(10px, 4vw, 40px);
+  --h1-text: clamp(10px, 4vw, 10rem);
   --h2-text: clamp(20px, 4vw, 60px);
   --h3-text: clamp(20px, 3vw, 60px);
   --h4-text: clamp(16px, 2.4vw, 60px);
@@ -92,6 +93,7 @@ table {
 .col-50 {
   width: 50%;
 }
+
 /************************* Resuse CSS End *************************/
 
 .main-img {
@@ -105,10 +107,10 @@ html {
   color-scheme: dark light;
 
   body {
+
     // min-height: 100vh;
     .default-container {
-      max-width: min(90%, 1200px);
-      width: 100%;
+      Width: min(90%, 1200px);
       margin: 0 auto;
       // z-index: 1;
       // position: relative;
@@ -118,32 +120,59 @@ html {
       position: fixed;
       width: 100%;
       z-index: 100;
+
       .default-container {
         .default-flex();
-        max-width: min(90%, 1380px);
+        width: min(90%, 1380px);
         padding: 31px 2px 31px 4px;
+
         .sprite.logo {
           background-position: -12px -11px;
           width: 229px;
           height: 62px;
         }
+
+        nav {
+          .default-flex();
+          gap: 33px;
+
+          a {
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            font-weight: 500;
+            color: var(--primary-color);
+            letter-spacing: 0.8px;
+          }
+
+
+        }
+
         .menu {
-          nav {
-            .default-flex();
-            gap: 33px;
-            a {
-              font-size: clamp(12px, 2vw, 16px);
-              font-weight: 500;
-              color: var(--primary-color);
-              letter-spacing: 0.8px;
+          cursor: pointer;
+          z-index: 1;
+          display: none;
+
+          .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 5px auto;
+            transition: all 0.6s ease-in-out;
+          }
+
+          &.active {
+            .bar:nth-child(2) {
+              transform: translateX(-30px);
+              opacity: 0;
             }
-            a.btn {
-              margin-left: 16px;
-              padding: 20px 36px 20px 35px;
-              color: var(--primary-color);
-              letter-spacing: 0.9px;
-              background-color: var(--primary-color);
-              border-radius: 4px;
+
+            .bar:nth-child(1) {
+              transform: translatey(8px) rotate(45deg);
+
+            }
+
+            .bar:nth-child(3) {
+              transform: translatey(-8px) rotate(-45deg);
             }
           }
         }
@@ -151,8 +180,9 @@ html {
     }
 
     main {
-      // section {
-      // }
+      section {
+        height: 100vh;
+      }
     }
 
     // footer {
@@ -162,15 +192,22 @@ html {
       bottom: 15px;
       right: 15px;
       display: block;
+      visibility: hidden;
       padding: 5px;
       background: #000;
       height: 50px;
       width: 50px;
       border-radius: 50%;
       transition: all 0.2s linear;
+
       &:hover {
         transform: translate3d(0, -10px, 0);
       }
+
+      &.active {
+        visibility: visible;
+      }
+
       &::after {
         content: "";
         position: absolute;
@@ -193,6 +230,7 @@ html {
   transition: all 0.8s ease-in-out;
   visibility: hidden;
   opacity: 0;
+
   &.fadeUp {
     -moz-transform: translateY(30px);
     -ms-transform: translateY(30px);
@@ -224,6 +262,7 @@ html {
   &.animatedCls {
     visibility: visible;
     opacity: 1;
+
     &.fadeUp {
       -moz-transform: translateY(0);
       -ms-transform: translateY(0);
@@ -253,15 +292,18 @@ html {
     }
   }
 }
+
 /*************************** Animation Class End ***************************/
 /*************************** Keyframes Start *****************************/
 // animation: bounceTopDown 0.8s linear infinite;
 @keyframes bounceTopDown {
+
   0%,
   100% {
     -webkit-transform: translateY(0);
     transform: translateY(0);
   }
+
   50% {
     -webkit-transform: translateY(-5px);
     transform: translateY(-5px);
@@ -273,38 +315,40 @@ html {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
+
 /*************************** Keyframes End *****************************/
 
 /*************************** Responisve Start ***************************/
 
 //w : 1728 x 1600
-@media only screen and (max-width: 1366px) {
-}
-@media only screen and (max-width: 1280px) {
-}
-@media only screen and (max-width: 1200px) {
-}
-@media only screen and (max-width: 1080px) {
-}
-@media only screen and (max-width: 992px) {
-}
-@media only screen and (max-width: 860px) {
-}
-@media only screen and (max-width: 764px) {
-}
-@media only screen and (max-width: 680px) {
-}
-@media only screen and (max-width: 620px) {
-}
-@media only screen and (max-width: 480px) {
-}
-@media only screen and (max-width: 420px) {
-}
-@media only screen and (max-width: 380px) {
-}
+@media only screen and (max-width: 1366px) {}
+
+@media only screen and (max-width: 1280px) {}
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 1080px) {}
+
+@media only screen and (max-width: 992px) {}
+
+@media only screen and (max-width: 860px) {}
+
+@media only screen and (max-width: 764px) {}
+
+@media only screen and (max-width: 680px) {}
+
+@media only screen and (max-width: 620px) {}
+
+@media only screen and (max-width: 480px) {}
+
+@media only screen and (max-width: 420px) {}
+
+@media only screen and (max-width: 380px) {}
+
 /*************************** Responisve End ***************************/
